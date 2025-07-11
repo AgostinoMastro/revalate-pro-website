@@ -1,0 +1,55 @@
+name: Deploy AI Expense Agent Landing Page
+
+on:
+  push:
+    branches: [ main ]
+    paths: [ 'ai-expense-agent/**' ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "ai-expense-pages"
+  cancel-in-progress: false
+
+jobs:
+  build-ai-expense:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies for AI expense agent landing page
+        working-directory: ./ai-expense-agent
+        run: bun install
+
+      - name: Build AI expense agent landing page
+        working-directory: ./ai-expense-agent
+        run: bun run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload AI expense agent artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./ai-expense-agent/dist
+
+  deploy-ai-expense:
+    environment:
+      name: ai-expense-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build-ai-expense
+    steps:
+      - name: Deploy AI Expense Agent Landing Page to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

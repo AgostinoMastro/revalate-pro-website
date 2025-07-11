@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 COMPREHENSIVE DEBUGGING</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 8px;
+        }
+        .error { color: #EF4444; }
+        .success { color: #10B981; }
+        .warning { color: #F59E0B; }
+        .debug { background-color: #2a2a2a; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .log-example {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-left: 3px solid #0AAEFF;
+            font-family: monospace;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .scenario {
+            background-color: #2a2a2a;
+            padding: 10px;
+            margin: 5px 0;
+            border-left: 3px solid #F59E0B;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 COMPREHENSIVE DEBUGGING - Version 551</h1>
+
+    <div class="test-section">
+        <h2>❌ PROBLEM CONFIRMED</h2>
+        <p><strong>User Report:</strong> "The talk to us buttons are not showing the modal on the services and industries pages."</p>
+
+        <div class="debug">
+            <h3>🔧 NEW DEBUGGING STRATEGY:</h3>
+            <p>Added comprehensive logging to trace the <strong>complete function call chain</strong> from button click to modal render.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 CRITICAL: PLEASE TEST WITH CONSOLE OPEN</h2>
+
+        <div class="log-example">
+<strong>STEP 1:</strong> Navigate to Industries → Residential Construction<br>
+<strong>STEP 2:</strong> Open Browser Console (F12 → Console tab)<br>
+<strong>STEP 3:</strong> Click "Talk to Us" button<br>
+<strong>STEP 4:</strong> Copy EXACT console output and report it
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📋 EXPECTED FULL DEBUG OUTPUT</h2>
+        <p>If everything works, you should see this EXACT sequence:</p>
+
+        <div class="log-example">
+🔴 INDUSTRY BUTTON CLICKED!<br>
+onDemoClick function: [function definition]<br>
+onDemoClick type: function<br>
+About to call onDemoClick...<br>
+✅ onDemoClick called successfully<br>
+🏭 Industry page demo button clicked<br>
+contactModal: [object Object]<br>
+contactModal.openDemo: [function definition]<br>
+🎯 useContactModal.openDemo called!<br>
+Setting defaultTab to demo and isOpen to true<br>
+Modal state should now be open<br>
+🚀 ContactModal rendering! isOpen: true defaultTab: demo
+        </div>
+
+        <p><strong>AND</strong> the modal should appear on screen.</p>
+    </div>
+
+    <div class="test-section">
+        <h2>🔍 DIAGNOSTIC SCENARIOS</h2>
+        <p>Based on what logs you see, we can identify the exact problem:</p>
+
+        <div class="scenario">
+            <h3>❌ Scenario 1: No logs at all</h3>
+            <p><span class="error">Issue:</span> Button click not registering</p>
+            <p><span class="warning">Cause:</span> CSS z-index, pointer-events, or HTML structure issue</p>
+        </div>
+
+        <div class="scenario">
+            <h3>❌ Scenario 2: Only "🔴 INDUSTRY BUTTON CLICKED!" logs</h3>
+            <p><span class="error">Issue:</span> onDemoClick function not being called</p>
+            <p><span class="warning">Cause:</span> Function reference or scope issue</p>
+        </div>
+
+        <div class="scenario">
+            <h3>❌ Scenario 3: Button logs but no "🏭 Industry page" logs</h3>
+            <p><span class="error">Issue:</span> Wrapper function not executing</p>
+            <p><span class="warning">Cause:</span> App.tsx function passing issue</p>
+        </div>
+
+        <div class="scenario">
+            <h3>❌ Scenario 4: Function logs but no "🎯 useContactModal" logs</h3>
+            <p><span class="error">Issue:</span> contactModal.openDemo not working</p>
+            <p><span class="warning">Cause:</span> Hook or state management problem</p>
+        </div>
+
+        <div class="scenario">
+            <h3>❌ Scenario 5: All logs but no visual modal</h3>
+            <p><span class="error">Issue:</span> Modal rendered but not visible</p>
+            <p><span class="warning">Cause:</span> CSS z-index, positioning, or styling issue</p>
+        </div>
+
+        <div class="scenario">
+            <h3>✅ Scenario 6: All logs + modal appears</h3>
+            <p><span class="success">Success!</span> Everything is working correctly</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 NEXT STEPS BASED ON RESULTS</h2>
+
+        <div class="debug">
+            <h3>What to Report:</h3>
+            <ol>
+                <li><strong>Which scenario matches your experience</strong></li>
+                <li><strong>Complete console output</strong> (copy/paste)</li>
+                <li><strong>Whether modal appears visually</strong></li>
+                <li><strong>Any JavaScript errors in console</strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 ENHANCED DEBUGGING FEATURES</h2>
+
+        <div class="debug">
+            <h3>What's Been Added:</h3>
+            <ul>
+                <li>✅ <strong>Button Click Tracing</strong> - Logs when button is physically clicked</li>
+                <li>✅ <strong>Function Reference Validation</strong> - Checks if onDemoClick is a valid function</li>
+                <li>✅ <strong>App.tsx Wrapper Functions</strong> - Logs from component prop passing level</li>
+                <li>✅ <strong>Hook State Tracking</strong> - Logs from useContactModal when state changes</li>
+                <li>✅ <strong>Component Render Monitoring</strong> - Logs from ContactModal when rendering</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🚨 IMPORTANT: TEST OTHER PAGES TOO</h2>
+        <p>Also test these pages with console open:</p>
+        <ul>
+            <li><strong>Pricing</strong> page - Look for "💰 Pricing page demo button clicked"</li>
+            <li><strong>AI Agents</strong> page - Look for "🤖 AI Agents page demo button clicked"</li>
+            <li><strong>About</strong> page - Look for "ℹ️ About page demo button clicked"</li>
+        </ul>
+    </div>
+
+    <a href="/" style="color: #0AAEFF; text-decoration: none; display: inline-block; margin-top: 20px;">
+        ← Back to RevalatePro Website
+    </a>
+</body>
+</html>
