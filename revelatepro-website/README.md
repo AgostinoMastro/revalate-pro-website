@@ -48,3 +48,9 @@ export default tseslint.config({
   },
 })
 ```
+Routing & Base URL:
+In the vite.config.ts for ai-expense-agent, check if the base property is set correctly:
+export default defineConfig({
+  base: '/ai-expense-agent/',
+  // other config...
+})
