@@ -3,7 +3,10 @@ name: Deploy AI Expense Agent Landing Page
 on:
   push:
     branches: [ main ]
-    paths: [ 'ai-expense-agent/**' ]
+    paths:
+      - 'ai-expense-agent/**'
+      - 'vite.config.ts'
+      - 'README.md'
   workflow_dispatch:
 
 permissions:
