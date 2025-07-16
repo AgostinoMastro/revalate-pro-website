@@ -26,11 +26,24 @@ jobs:
         with:
           bun-version: latest
 
-      - name: Install dependencies
+      # Build main site (unchanged)
+      - name: Install main site dependencies
         run: bun install
 
-      - name: Build
+      - name: Build main site
         run: bun run build
+
+      # Build AI expense agent and add to main site
+      - name: Install AI expense agent dependencies
+        working-directory: ./ai-expense-agent
+        run: bun install
+
+      - name: Build AI expense agent
+        working-directory: ./ai-expense-agent
+        run: bun run build
+
+      - name: Copy AI expense agent to main site
+        run: cp -r ai-expense-agent/dist dist/ai-expense-agent
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
