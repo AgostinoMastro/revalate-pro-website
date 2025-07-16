@@ -78,4 +78,4 @@ The landing page reuses components and styles from the main Revalate Pro website
 - Same responsive breakpoints
 
 ## Routing & Base URL: 
-In the vite.config.ts for ai-expense-agent, check if the base property is set correctly: export default defineConfig({ base: '/ai-expense-agent/', // other config... })  
+In the vite.config.ts for ai-expense-agent, check if the base property is set correctly: export default defineConfig({ base: '/ai-expense-agent/', // other config... })
