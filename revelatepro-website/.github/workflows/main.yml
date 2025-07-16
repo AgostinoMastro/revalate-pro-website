@@ -1,0 +1,77 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Verify main package.json exists
+        run: |
+          ls -la
+          cat package.json
+
+      - name: Install main site dependencies
+        run: bun install
+
+      - name: Build main site
+        run: bun run build
+
+      - name: Verify AI expense agent structure
+        run: |
+          ls -la ai-expense-agent/
+          cat ai-expense-agent/package.json
+
+      - name: Install AI expense agent dependencies
+        working-directory: ./ai-expense-agent
+        run: bun install
+
+      - name: Build AI expense agent
+        working-directory: ./ai-expense-agent
+        run: bun run build
+
+      - name: Copy AI expense agent to main site
+        run: |
+          ls -la dist/
+          ls -la ai-expense-agent/dist/
+          cp -r ai-expense-agent/dist dist/ai-expense-agent
+          ls -la dist/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
