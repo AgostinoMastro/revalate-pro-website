@@ -26,11 +26,21 @@ jobs:
         with:
           bun-version: latest
 
+      - name: Verify main package.json exists
+        run: |
+          ls -la
+          cat package.json
+
       - name: Install main site dependencies
         run: bun install
 
       - name: Build main site
         run: bun run build
+
+      - name: Verify AI expense agent structure
+        run: |
+          ls -la ai-expense-agent/
+          cat ai-expense-agent/package.json
 
       - name: Install AI expense agent dependencies
         working-directory: ./ai-expense-agent
@@ -41,7 +51,11 @@ jobs:
         run: bun run build
 
       - name: Copy AI expense agent to main site
-        run: cp -r ai-expense-agent/dist dist/ai-expense-agent
+        run: |
+          ls -la dist/
+          ls -la ai-expense-agent/dist/
+          cp -r ai-expense-agent/dist dist/ai-expense-agent
+          ls -la dist/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
