@@ -17,7 +17,7 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noEmit": true,
-    "jsxImportSource": "bippy/dist"
+    "jsxImportSource": "react"
   },
   "include": [
     "src",
