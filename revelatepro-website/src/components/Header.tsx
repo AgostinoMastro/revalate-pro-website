@@ -287,6 +287,12 @@ export const Header: React.FC<HeaderProps> = ({
             >
               Talk to Us
             </button>
+            <a
+              href="https://revalate.app/homepage"
+              className="px-6 py-3 bg-pastel-blue text-white font-semibold rounded-xl transition-all duration-200 hover:opacity-90 white-border-btn min-h-touch"
+            >
+              Sign Up
+            </a>
           </div>
 
           {/* Mobile Menu Button - Enhanced touch target */}
@@ -427,6 +433,15 @@ export const Header: React.FC<HeaderProps> = ({
                     className="w-full px-6 py-4 bg-pastel-blue text-white font-semibold rounded-xl transition-all duration-200 hover:opacity-90 white-border-btn text-lg min-h-touch"
                   >
                     Talk to Us
+                  </button>
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false)
+                      window.location.href = 'https://revalate.app/homepage'
+                    }}
+                    className="w-full px-6 py-4 bg-pastel-blue text-white font-semibold rounded-xl transition-all duration-200 hover:opacity-90 white-border-btn text-lg min-h-touch"
+                  >
+                    Sign Up
                   </button>
                 </div>
               </div>
