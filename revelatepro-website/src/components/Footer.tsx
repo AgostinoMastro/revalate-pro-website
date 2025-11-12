@@ -15,10 +15,6 @@ export const Footer: React.FC = () => {
               Privacy Policy
             </a>
             <span className="mx-2">|</span>
-            <a href="https://terms.revalate.com/understand-usage/" className="hover:text-pastel-blue transition-colors duration-200" target="_blank" rel="noopener noreferrer">
-              Understand Usage
-            </a>
-            <span className="mx-2">|</span>
             <a href="https://terms.revalate.com/support-schedule/" className="hover:text-pastel-blue transition-colors duration-200" target="_blank" rel="noopener noreferrer">
               Support Schedule
             </a>
