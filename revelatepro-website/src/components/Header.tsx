@@ -112,9 +112,9 @@ export const Header: React.FC<HeaderProps> = ({
           <nav className="hidden lg:flex items-center" aria-label="Main navigation">
 
             {/* Features Dropdown */}
-            <div className="relative mr-10">
+            <div className="relative mr-6 xl:mr-10">
               <button
-                className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center interactive-element min-h-touch px-2"
+                className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center interactive-element min-h-touch px-2 text-sm xl:text-base"
                 onClick={(e) => {
                   e.stopPropagation()
                   setFeaturesDropdownOpen(!featuresDropdownOpen)
@@ -183,9 +183,9 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* Industries Dropdown */}
-            <div className="relative mr-8">
+            <div className="relative mr-4 xl:mr-8">
               <button
-                className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center interactive-element min-h-touch px-2"
+                className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center interactive-element min-h-touch px-2 text-sm xl:text-base"
                 onClick={(e) => {
                   e.stopPropagation()
                   setIndustriesDropdownOpen(!industriesDropdownOpen)
@@ -244,7 +244,7 @@ export const Header: React.FC<HeaderProps> = ({
             {onROICalculatorClick && (
               <button
                 onClick={onROICalculatorClick}
-                className="text-gray-300 hover:text-white transition-colors duration-200 mr-6 min-h-touch px-2"
+                className="text-gray-300 hover:text-white transition-colors duration-200 mr-4 xl:mr-6 min-h-touch px-2 text-sm xl:text-base"
               >
                 ROI Calculator
               </button>
@@ -253,7 +253,7 @@ export const Header: React.FC<HeaderProps> = ({
             {onAboutClick ? (
               <button
                 onClick={onAboutClick}
-                className="text-gray-300 hover:text-white transition-colors duration-200 min-h-touch px-2"
+                className="text-gray-300 hover:text-white transition-colors duration-200 min-h-touch px-2 text-sm xl:text-base"
               >
                 About
               </button>
@@ -262,7 +262,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => {
                   document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
                 }}
-                className="text-gray-300 hover:text-white transition-colors duration-200 min-h-touch px-2 flex items-center"
+                className="text-gray-300 hover:text-white transition-colors duration-200 min-h-touch px-2 flex items-center text-sm xl:text-base"
               >
                 About
               </button>
@@ -270,20 +270,26 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 xl:space-x-4">
             {onStartTour && (
               <button
                 onClick={onStartTour}
-                className="px-4 py-2 text-sm border border-gray-600 text-gray-300 font-semibold rounded-lg hover:bg-gray-700 transition-all duration-200 flex items-center space-x-2 min-h-touch"
+                className="px-3 py-2 lg:px-4 lg:py-2 text-sm border border-gray-600 text-gray-300 font-semibold rounded-lg hover:bg-gray-700 transition-all duration-200 flex items-center space-x-2 min-h-touch"
                 aria-label="Start guided tour"
               >
                 <Lightbulb className="w-4 h-4" />
                 <span>Tour</span>
               </button>
             )}
+            <a
+              href="https://revalate.app/homepage"
+              className="px-3 py-2 lg:px-4 lg:py-2 text-gray-300 hover:text-white transition-colors duration-200 min-h-touch text-sm xl:text-base"
+            >
+              Log in
+            </a>
             <button
               onClick={onDemoClick}
-              className="px-6 py-3 bg-pastel-blue text-white font-semibold rounded-xl transition-all duration-200 hover:opacity-90 white-border-btn min-h-touch"
+              className="px-4 py-2.5 lg:px-6 lg:py-3 bg-pastel-blue text-air-black font-semibold rounded-xl transition-all duration-200 hover:bg-pastel-blue/90 white-border-btn min-h-touch text-sm xl:text-base"
             >
               Talk to Us
             </button>
@@ -405,6 +411,15 @@ export const Header: React.FC<HeaderProps> = ({
 
                 {/* Mobile CTA Buttons */}
                 <div className="border-t border-dark-border/30 mx-4 my-4" />
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false)
+                    window.location.href = 'https://revalate.app/homepage'
+                  }}
+                  className="block w-full text-left pl-8 pr-4 py-4 text-lg text-gray-300 hover:text-white transition-colors duration-200 interactive-element min-h-touch rounded-lg hover:bg-white/5 mx-2"
+                >
+                  Log in
+                </button>
                 <div className="px-4 py-4 space-y-4">
                   {onStartTour && (
                     <button
@@ -424,7 +439,7 @@ export const Header: React.FC<HeaderProps> = ({
                       setIsMenuOpen(false)
                       onDemoClick()
                     }}
-                    className="w-full px-6 py-4 bg-pastel-blue text-white font-semibold rounded-xl transition-all duration-200 hover:opacity-90 white-border-btn text-lg min-h-touch"
+                    className="w-full px-6 py-4 bg-pastel-blue text-air-black font-semibold rounded-xl transition-all duration-200 hover:opacity-90 white-border-btn text-lg min-h-touch"
                   >
                     Talk to Us
                   </button>

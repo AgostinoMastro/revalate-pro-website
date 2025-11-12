@@ -218,6 +218,18 @@ export const AIAgentsLanding: React.FC<AIAgentsLandingProps> = ({ onDemoClick })
               </div>
             ))}
           </StaggeredAnimation>
+
+          {/* Center CTA: Access AI Studio */}
+          <AnimatedSection animation="slideUp" duration={0.8} delay={150}>
+            <div className="mt-6 md:mt-8 text-center">
+              <a
+                href="https://revalate.app/homepage"
+                className="inline-flex items-center justify-center px-6 py-3 md:px-8 md:py-4 bg-pastel-blue text-air-black font-semibold md:font-bold rounded-xl transition-all duration-200 hover:bg-pastel-blue/90 shadow-md hover:shadow-lg text-sm md:text-lg"
+              >
+                Access AI Studio
+              </a>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
