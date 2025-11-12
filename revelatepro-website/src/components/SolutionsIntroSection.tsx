@@ -92,6 +92,13 @@ export const SolutionsIntroSection: React.FC<SolutionsIntroSectionProps> = ({
             {/* AI Agents Solution with enhanced animations */}
             <div className="group relative">
               <div className="relative p-8 md:p-10 rounded-2xl border-2 border-pastel-blue/30 card-pastel-bg cursor-pointer overflow-hidden flex flex-col min-h-[400px] transition-all duration-500 ease-out transform hover:scale-105 hover:shadow-2xl hover:-translate-y-2">
+                {/* Top-right AI Studio button */}
+                <a
+                  href="https://revalate.app/homepage"
+                  className="absolute top-4 right-4 z-20 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-semibold rounded-xl bg-pastel-blue text-air-black hover:bg-pastel-blue/90 shadow-sm transition-colors duration-200"
+                >
+                  AI Studio
+                </a>
                 {/* Animated background gradient */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-700">
                   <div className="absolute inset-0 bg-gradient-to-br from-pastel-blue/15 via-pastel-blue/8 to-transparent" />
@@ -157,7 +164,7 @@ export const SolutionsIntroSection: React.FC<SolutionsIntroSectionProps> = ({
                   {/* Metrics */}
                   <div className="grid grid-cols-2 gap-4 mb-8">
                     <div className="text-center p-3 rounded-lg bg-pastel-blue/10 border border-pastel-blue/20">
-                      <div className="text-lg font-bold text-pastel-blue">Within 24 Hours</div>
+                      <div className="text-lg font-bold text-pastel-blue">Within 5 minutes</div>
                       <div className="text-xs text-gray-x11">Setup Time</div>
                     </div>
                     <div className="text-center p-3 rounded-lg bg-pastel-blue/10 border border-pastel-blue/20">
