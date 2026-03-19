@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import NotFound from './components/NotFound';
 
 // Logo Assets
 const LOGOS = {
@@ -469,6 +470,11 @@ const Footer = ({ onPrivacyClick, onTermsClick }: FooterProps) => (
 function App() {
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+
+  const pathname = window.location.pathname;
+  if (pathname !== '/' && pathname !== '/index.html') {
+    return <NotFound />;
+  }
 
   return (
     <div className="min-h-screen bg-background text-slate-400">
